@@ -40,14 +40,14 @@
 
 <body>
     <div>
-        <img src="./img/0.png" alt="">
-        <img src="./img/0.png" alt="">
+        <img src="./img/clockimg/0.png" alt="">
+        <img src="./img/clockimg/0.png" alt="">
         ：
-        <img src="./img/0.png" alt="">
-        <img src="./img/0.png" alt="">
+        <img src="./img/clockimg/0.png" alt="">
+        <img src="./img/clockimg/0.png" alt="">
         ：
-        <img src="./img/0.png" alt="">
-        <img src="./img/0.png" alt="">
+        <img src="./img/clockimg/0.png" alt="">
+        <img src="./img/clockimg/0.png" alt="">
     </div>
     <script>
         function toDou(n) {
@@ -66,7 +66,7 @@
                 let oDate = new Date()
                 let str = toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds())
                 for (let i = 0; i < aimg.length; i++) {
-                    aimg[i].src = './img/' + str[i] + '.png'
+                    aimg[i].src = './img/clockimg/' + str[i] + '.png'
                 }
             }
             setInterval(tick, 1000)
