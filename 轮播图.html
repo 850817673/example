@@ -5,11 +5,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top
+        }
+
+        .li_img {
+            width: 554px;
+            list-style: none;
+            float: left;
+        }
+
+        .ul_img {
+            width: 2760px;
+            padding: 0;
+            margin: 0;
+            transition: all 2s;
+        }
+
+        #imgContent {
+            width: 554px;
+            height: 244px;
+            overflow: hidden;
+        }
+
+        .arrow {
+            position: absolute;
+            color: aliceblue;
+            padding-top: 90px;
+            z-index: 999;
+            opacity: 0.3;
+        }
+
+        .arrow>span:hover {
+            cursor: pointer;
+            color: red;
+        }
+    </style>
 </head>
-...
-看看我成功了没
+<script>
+    var count = 0;
+    var isgo = false;
+    var tiemr
+    window.onload = function () {
+        var imgContent = document.getElementById('imgContent')
+        var ul_img = document.getElementsByClassName("ul_img")[0]
+        var li_img = document.getElementsByClassName("li_img")
+        ul_img.innerHTML += ul_img.innerHTML
+
+        showtime();
+
+        function showtime() {
+            tiemr = setInterval(() => {
+                count++
+                ul_img.style.transform = `translate(${-554*count}px)`
+                if (count > 4) {
+                    count = 0
+                }
+                console.log(count)
+
+            }, 1000);
+        }
+    }
+</script>
 
 <body>
+    <div id="content">
+        <div class="arrow">
+            <span class="leftArrow">
+                <i class="fa fa-chevron-left  fa-3x"></i>
+            </span>
+            <span class="rightArrow">
+                <i class="fa fa-chevron-right fa-3x"></i>
+            </span>
+        </div>
+        <div id="imgContent">
+            <ul class="ul_img">
+                <li class="li_img"><img src="./img/lunboimg/01.png" alt=""></li>
+                <li class="li_img"><img src="./img/lunboimg/02.png" alt=""></li>
+                <li class="li_img"><img src="./img/lunboimg/03.png" alt=""></li>
+                <li class="li_img"><img src="./img/lunboimg/04.png" alt=""></li>
+                <li class="li_img"><img src="./img/lunboimg/05.png" alt=""></li>
+                <li class="li_img"><img src="./img/lunboimg/01.png" alt=""></li>
+            </ul>
+        </div>
+        <div><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span></div>
+
+    </div>
 
 </body>
 
