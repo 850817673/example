@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let arr = [1, 1, 5, 56, 5, 5, 8, 5, 2, 2, 3, 3, 1]
+        //   ↓ 因为这是取第一项和下一项比，所以不需要最后一项
+        for (let i = 0; i < arr.length - 1; i++) {
+            //   ↓ 使用 let item = arr[i] 的原因:
+            //   ↓ 会快那么一点一点。因为 item 是找变量，而 arr[i] 是找了变量再找索引
+            let item = arr[i]
+            //   ↓ i 后面的一项，让它和 i 做比较
+            for (let j = i + 1; j < arr.length; j++) {
+                if (item === arr[j]) {
+                    // arr.splice(j, 1)
+                    // ↑ 上面这种方式会引起数组塌陷
+
+                    //   ↓ 如果 item(arr[i]) 和 arr[j] 两个值相等
+                    //   ↓ 那么就把这个数组的最后一个值赋值给 arr[j]
+                    //   ↓ 然后删除这个数组的最后一项
+                    //   ↓ 这样就不会数组塌陷（索引全部往前推一位，量大了消耗性能）
+                    arr[j] = arr[arr.length - 1]
+                    arr.length--
+                    //   ↓ 因为现在的 arr[j] 是刚最后一位，所以需要重新比较
+                    //   ↓ 先让他往前一位，然后 j++ 
+                    j--
+                }
+            }
+        }
+        console.log(arr)
+
+
+
+
+        let arr1 = [1, 1, 5, 56, 5, 5, 8, 5, 2, 2, 3, 3, 1]
+        //  ↓ 设置一个空数组接收值
+        let newArr = []
+        for (let i = 0; i < arr1.length; i++) {
+            //  ↓ 提高性能 +  书写简便 
+            let item1 = arr1[i]
+            //  ↓ indexOf 数组里面如果没有和 key(item) 相同的值就返回 -1 如果和 key 相同的值得话返回这个值第一个的索引
+            if (newArr.indexOf(item1) == -1) {
+                // ↓ 将这个值推到新数组
+                newArr.push(item1)
+            }
+        }
+        arr1 = newArr
+        console.log(arr1)
+    </script>
+</body>
+
+</html>

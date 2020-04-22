@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #div1 {
+        width: 200px;
+        height: 300px;
+        background-color: chartreuse;
+        position: relative;
+        top: 200px;
+        left: -200px;
+    }
+
+    span {
+        width: 20px;
+        height: 70px;
+        background-color: cornflowerblue;
+        position: absolute;
+        top: 115px;
+        left: 200px;
+    }
+</style>
+
+<body>
+    <div id="div1">
+        <span id="span1">分享到</span>
+    </div>
+    <script>
+        window.onload = () => {
+            let oDiv = document.getElementById('div1')
+            oDiv.onmouseover = () => {
+                startMove(10, 0)
+            }
+            oDiv.onmouseout = () => {
+                startMove(-10, -200)
+            }
+        }
+        let timer = null
+
+        function startMove(speed, offLeft) {
+            let oDiv = document.getElementById('div1')
+            clearInterval(timer)
+            timer = setInterval(() => {
+                if (oDiv.offsetLeft == offLeft) {
+                    clearInterval(timer)
+                } else {
+                    oDiv.style.left = oDiv.offsetLeft + speed + 'px'
+                }
+            }, 30);
+        }
+    </script>
+</body>
+
+</html>

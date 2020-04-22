@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input id="div1" type="button" value="全选">
+        <input id="div3" type="button" value="全不选">
+        <input id="div4" type="button" value="反选">
+        <div id="div2">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox"></div>
+    </div>
+    <script>
+        window.onload = function () {
+            let btn1 = document.getElementById('div1')
+            let btn2 = document.getElementById('div3')
+            let btn3 = document.getElementById('div4')
+            var odiv = document.getElementById('div2')
+            var ocha = document.getElementsByTagName('input')
+
+            btn1.onclick = function () {
+                for (let i = 0; i < ocha.length; i++) {
+                    ocha[i].checked = true
+                }
+            }
+            btn2.onclick = function () {
+                for (let i = 0; i < ocha.length; i++) {
+                    ocha[i].checked = false
+                }
+            }
+
+            btn3.onclick = function () {
+                for (let i = 0; i < ocha.length; i++) {
+                    if (ocha[i].checked == true) {
+                        ocha[i].checked = false
+                    } else {
+                        ocha[i].checked = true
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

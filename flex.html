@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #parent {
+        width: 800px;
+        height: 600px;
+        border: 1px black solid;
+    }
+
+    #x1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 200px;
+    }
+
+    #x2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+
+    #x3 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 200px;
+
+    }
+
+
+    .child {
+        width: 100px;
+        height: 100px;
+    }
+
+    .c1 {
+        background-color: skyblue;
+
+    }
+
+    .c2 {
+        background-color: slateblue;
+
+    }
+
+    .c3 {
+        background-color: springgreen;
+        flex: 1;
+    }
+
+    .c4 {
+        background-color: rgb(34, 7, 211);
+        order: 2;
+
+    }
+
+    .c5 {
+        background-color: rgb(3, 54, 29);
+    }
+</style>
+
+<body>
+    <div id="parent">
+        <div id="x1">
+            <div class="child c1">1</div>
+            <div class="child c2">2</div>
+        </div>
+        <div id="x2">
+            <div class="child c3">3</div>
+        </div>
+        <div id="x3">
+            <div id='x4' class="child c4" onclick="changeOrder()">4</div>
+            <div class="child c5">5</div>
+        </div>
+        <input type="text" value="aaaaaa">
+    </div>
+    <script>
+        function changeOrder() {
+            var c44 = document.getElementById("x4")
+            if (c44.style.order == 2) {
+                c44.style.order = '0'
+            } else {
+                c44.style.order = '2'
+            }
+            console.log(c44.style)
+        }
+    </script>
+</body>
+
+</html>

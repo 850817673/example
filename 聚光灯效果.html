@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #222222;
+    }
+
+    div {
+        font-size: 100px;
+        color: #333333;
+        font-family: '楷体';
+        letter-spacing: -.1em;
+        position: relative;
+    }
+
+    div::after {
+        content: attr(data);
+        position: absolute;
+        color: transparent;
+        top: 0px;
+        left: 0px;
+        clip-path: ellipse(100px 100px at 0 50%);
+        animation: move 5s infinite alternate;
+        background-image: linear-gradient(to right, #2376b7, skyblue, #2e317c);
+        background-size: 150%;
+        -webkit-background-clip: text;
+    }
+
+    @keyframes move {
+        from {
+            clip-path: ellipse(100px 100px at 0 50%);
+        }
+
+        to {
+            clip-path: ellipse(100px 100px at 100% 50%);
+        }
+    }
+</style>
+
+<body>
+    <div data="层楼终究误少年，自由早晚乱余生">
+        层楼终究误少年，自由早晚乱余生
+    </div>
+
+</body>
+
+</html>

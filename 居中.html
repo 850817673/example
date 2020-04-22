@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #left {
+            width: 200px;
+            background-color: red;
+        }
+
+        #right {
+            width: 200px;
+            background-color: red;
+        }
+
+        #center {
+            flex: 1;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left">我是左<br>aa </div>
+    <div id="center">我是中</div>
+    <div id="right">我是右</div>
+
+
+    <script>
+        let arr = [1, 2, 45, 7, 8, 1, 43, 3]
+
+        // forEach
+        // arr.forEach((x, index, a) => {
+        //     console.log(`${x}+${index}+${a===arr}`)
+        // })
+        // console.log(arr)
+
+
+        // map
+        // let arr1 = arr.map((item) => {
+        //     return item + 2
+        // })
+        // console.log(arr1)
+        // 返回[3, 4, 47, 9, 10, 3, 45, 5]
+
+        // let arr1 = arr.map((item) => {
+        //     return item % 3 === 0
+        // })
+        // console.log(arr1)
+        // 返回[false, false, true, false, false, false, false, true]
+
+
+        // filter
+        // let arr2 = arr.filter((x) => {
+        //     return x % 3 === 0
+        // })
+        // console.log(arr2)
+    </script>
+</body>
+
+</html>

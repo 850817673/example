@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #div1 {
+            width: 400px;
+            height: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+        }
+
+        div>ul>li {
+            list-style: none;
+            width: 100px;
+            height: 100px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <div id="div1">
+            <ul>
+                <li><img src="./img/0.png"> </li>
+                <li><img src="./img/1.png"></li>
+                <li><img src="./img/2.png"></li>
+                <li><img src="./img/3.png"></li>
+            </ul>
+        </div>
+        <input type="button" value="向左走">
+        <input type="button" value="向右走">
+    </div>
+    <script>
+        window.onload = () => {
+            let oDiv = document.getElementById('div1')
+            let oUl = document.getElementsByTagName('ul')[0]
+            let aLi = oUl.getElementsByTagName('li')
+            let btn1 = document.getElementById('div')
+            let oInp1 = btn1.getElementsByTagName('input')[0]
+            let oInp2 = btn1.getElementsByTagName('input')[1]
+            oUl.innerHTML += oUl.innerHTML
+            oUl.style.width = aLi[0].offsetWidth * aLi.length + 'px'
+            let speed = 2
+            oInp1.onclick = () => {
+                speed = -2
+            }
+            oInp2.onclick = () => {
+                speed = 2
+            }
+
+            function move() {
+                if (oUl.offsetLeft < -oUl.offsetWidth / 2) {
+                    oUl.style.left = '0'
+                }
+                if (oUl.offsetLeft > 0) {
+                    oUl.style.left = -oUl.offsetWidth / 2 + 'px'
+                }
+                oUl.style.left = oUl.offsetLeft + speed + 'px'
+            }
+            let timer = setInterval(move, 30);
+            oDiv.onmouseover = () => {
+                clearInterval(timer)
+            }
+            oDiv.onmouseout = () => {
+                timer = setInterval(move, 30);
+            }
+        }
+    </script>
+</body>
+
+</html>
